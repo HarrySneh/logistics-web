@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,6 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2 text-2xl font-extrabold text-white"
@@ -39,7 +39,6 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <NavLink to="/" className={navLinkClass} end>
             Home
@@ -50,6 +49,12 @@ const Navbar = () => {
           <NavLink to="/about" className={navLinkClass}>
             About
           </NavLink>
+          <NavLink to="/why-choose-us" className={navLinkClass}>
+            Why Us
+          </NavLink>
+          <NavLink to="/articles" className={navLinkClass}>
+            Articles
+          </NavLink>
           <NavLink to="/tracking" className={navLinkClass}>
             Track
           </NavLink>
@@ -59,9 +64,9 @@ const Navbar = () => {
           >
             Get a Quote
           </NavLink>
+          <ThemeToggle />
         </nav>
 
-        {/* Mobile Hamburger */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-1"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -79,7 +84,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-full left-0 w-full bg-primary-dark/95 backdrop-blur-lg transition-all duration-300 overflow-hidden ${
           mobileOpen ? "max-h-96 py-6" : "max-h-0 py-0"
@@ -95,6 +99,12 @@ const Navbar = () => {
           <NavLink to="/about" onClick={() => setMobileOpen(false)}>
             About
           </NavLink>
+          <NavLink to="/why-choose-us" onClick={() => setMobileOpen(false)}>
+            Why Us
+          </NavLink>
+          <NavLink to="/articles" onClick={() => setMobileOpen(false)}>
+            Articles
+          </NavLink>
           <NavLink to="/tracking" onClick={() => setMobileOpen(false)}>
             Track
           </NavLink>
@@ -105,6 +115,9 @@ const Navbar = () => {
           >
             Get a Quote
           </NavLink>
+          <div className="mt-2">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>

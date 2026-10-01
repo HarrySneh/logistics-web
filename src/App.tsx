@@ -8,6 +8,9 @@ import Tracking from "./pages/Tracking";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import PageTransition from "./components/PageTransition";
+import WhyChooseUs from "./pages/WhyChooseUs";
+import Articles from "./pages/Articles";
+import ArticleDetail from "./pages/ArticleDetail";
 
 function AppRoutes() {
   const location = useLocation();
@@ -51,6 +54,30 @@ function AppRoutes() {
           element={
             <PageTransition>
               <Contact />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/why-choose-us"
+          element={
+            <PageTransition>
+              <WhyChooseUs />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/articles"
+          element={
+            <PageTransition>
+              <Articles />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/articles/:slug"
+          element={
+            <PageTransition>
+              <ArticleDetail />
             </PageTransition>
           }
         />
